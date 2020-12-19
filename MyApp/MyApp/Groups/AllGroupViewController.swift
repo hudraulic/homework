@@ -11,10 +11,12 @@ class AllGroupViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var groups = [/*"GeekBrains", "SwiftBook", "MDK"*/
-        ("GeekBrains", UIImage(systemName: "pencil")!),
-        ("SwiftBook", UIImage(systemName: "pencil")!),
-        ("MDK", UIImage(systemName: "pencil")!)
+    var groups = [Group(name: "GeekBrains", icon: UIImage(systemName: "pencil")!),
+                  Group(name: "SwiftBook", icon: UIImage(systemName: "pencil")!),
+                  Group(name: "MDK", icon: UIImage(systemName: "pencil")!)
+        //("GeekBrains", UIImage(systemName: "pencil")!),
+        //("SwiftBook", UIImage(systemName: "pencil")!),
+        //("MDK", UIImage(systemName: "pencil")!)
     ]
     
     override func viewDidLoad() {
@@ -31,8 +33,8 @@ class AllGroupViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupCell") as! AllGroupViewCell
         
         let index = indexPath.row
-        let image = groups[index].1
-        let name = groups[index].0
+        let image = groups[index].icon
+        let name = groups[index].name
         
         cell.setData(name: name, image: image)
         return cell

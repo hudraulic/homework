@@ -9,8 +9,7 @@ import UIKit
 
 class PhotoFriendsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-   var photoData: [UIImage] = [UIImage(named: "Vlad")!, UIImage(named: "Jonh")!, UIImage(named: "Anton")!]
-
+    var photoData: [UIImage] = []
     @IBOutlet weak var photoFriends: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,14 +20,13 @@ class PhotoFriendsViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return photoData.count
     }
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = photoFriends.dequeueReusableCell(withReuseIdentifier: "PhotoFriendsCell", for: indexPath) as! PhotoFriendsViewCell
         
-        let index = indexPath.row
-        let photo = photoData[index]
+        let photo = photoData[indexPath.row]
         cell.setData(photo: photo)
         return cell
     }

@@ -10,14 +10,14 @@ import UIKit
 class Users {
     
     let name: String
-    let image: UIImage
+    let userPhoto: UIImage
+    let userPhotoLibrari: [UIImage]
     
-    init(name: String, image: UIImage) {
-        self.image = image
+    init(name: String, userPhoto: UIImage, librariPhoto: [UIImage]) {
         self.name = name
+        self.userPhoto = userPhoto
+        self.userPhotoLibrari = librariPhoto
     }
 }
 
-let vlad = Users(name: "Vlad", image: UIImage(named: "Vlad")!)
-let jonh = Users(name: "Jonh", image: UIImage(named: "Jonh")!)
-let anton = Users(name: "Anton", image: UIImage(named: "Anton")!)
+

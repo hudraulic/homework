@@ -10,7 +10,7 @@ import UIKit
 class MyGroupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 
-    var myGroupData: [(String, UIImage)] = []
+    var myGroup = [Group]()
     
     @IBOutlet weak var tableView: UITableView!
    
@@ -22,7 +22,7 @@ class MyGroupViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myGroupData.count
+        return myGroup.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,8 +30,8 @@ class MyGroupViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         //let group = myGroupData[indexPath.row]
         let index = indexPath.row
-        let image = myGroupData[index].1
-        let name = myGroupData[index].0
+        let image = myGroup[index].icon
+        let name = myGroup[index].name
         cell.setData(name: name, image: image)
         return cell
     }
@@ -41,15 +41,15 @@ class MyGroupViewController: UIViewController, UITableViewDelegate, UITableViewD
             guard let AllGroupViewController = segue.source as? AllGroupViewController else { return }
             if let indexPath = AllGroupViewController.tableView.indexPathForSelectedRow {
                 let group = AllGroupViewController.groups[indexPath.row]
-                    myGroupData.append(group)
-                    tableView.reloadData()
-                }
+                myGroup.append(group)
+                tableView.reloadData()
             }
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            myGroupData.remove(at: indexPath.row)
+            myGroup.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
