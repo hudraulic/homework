@@ -10,6 +10,7 @@ import UIKit
 class PhotoFriendsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var photoData: [UIImage] = []
+    
     @IBOutlet weak var photoFriends: UICollectionView!
     
     override func viewDidLoad() {
@@ -31,4 +32,22 @@ class PhotoFriendsViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "swipeToPhoto" {
+            guard let goToPhoto = segue.destination as? SwipePhotoViewController else { return }
+            goToPhoto.photos.append(contentsOf: photoData)
+        }
+        
+    }
+    
+}
+
+extension PhotoFriendsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.bounds.width/2 - 5, height: self.view.bounds.width/2)
+    }
+    
+    func collectionView ( _ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(5)
+    }
 }

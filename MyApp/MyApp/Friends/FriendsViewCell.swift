@@ -9,11 +9,11 @@ import UIKit
 
 class FriendsViewCell: UITableViewCell {
 
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var customView: CustomView!{ didSet{
+        self.customView.layer.cornerRadius = self.customView.frame.width/2
+        }
+    }
     @IBOutlet weak var nameLabel: UILabel!
     
-    func setData(name: String, image: UIImage) {
-        nameLabel.text = name
-        logoImage.image = image
-    }
 }
+

@@ -9,11 +9,10 @@ import UIKit
 
 class MyGroupViewCell: UITableViewCell {
 
-    @IBOutlet weak var iconGroup: UIImageView!
+    @IBOutlet weak var customView: CustomView!{ didSet{
+        self.customView.layer.cornerRadius = self.customView.frame.width/2
+        }
+    }
     @IBOutlet weak var nameGroup: UILabel!
     
-    func setData(name: String, image: UIImage) {
-        iconGroup.image = image
-        nameGroup.text = name
-    }
 }

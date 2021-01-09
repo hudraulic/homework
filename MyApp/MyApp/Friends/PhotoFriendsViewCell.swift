@@ -9,7 +9,10 @@ import UIKit
 
 class PhotoFriendsViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var photoFriends: UIImageView!
+    @IBOutlet weak var photoFriends: UIImageView!{ didSet{
+        photoFriends.contentMode = .scaleAspectFill
+        photoFriends.layer.cornerRadius = 8
+    }}
     
     func setData(photo: UIImage) {
         photoFriends.image = photo

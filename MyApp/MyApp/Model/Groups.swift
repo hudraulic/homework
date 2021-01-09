@@ -7,13 +7,9 @@
 
 import UIKit
 
-class Group {
+struct Group {
     
     let name: String
     let icon: UIImage
     
-    init(name: String, icon: UIImage) {
-        self.name = name
-        self.icon = icon
-    }
 }
