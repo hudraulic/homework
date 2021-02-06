@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="420" id="hPv-5B-Rem" customClass="NewsViewCell" customModule="VK_GeekBrains_MyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="285" height="420"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hPv-5B-Rem" id="cSq-S1-Mdn">
+                <rect key="frame" x="0.0" y="0.0" width="285" height="420"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKi-St-XP1" customClass="CustomView" customModule="VK_GeekBrains_MyApp" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="50" height="50"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Vac-WW-7T0"/>
+                            <constraint firstAttribute="width" constant="50" id="f9h-JB-51F"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="il3-SD-Glz">
+                        <rect key="frame" x="82" y="16" width="187" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-ES-FNO">
+                        <rect key="frame" x="16" y="76" width="253" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2h-N9-f4I" customClass="PhotoView" customModule="VK_GeekBrains_MyApp" customModuleProvider="target">
+                        <rect key="frame" x="5" y="110" width="275" height="270"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="270" id="V97-N8-KSg"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGr-WR-Pv6" customClass="LikeControl" customModule="VK_GeekBrains_MyApp" customModuleProvider="target">
+                        <rect key="frame" x="5" y="380" width="40" height="40"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Uzh-aP-snV"/>
+                            <constraint firstAttribute="width" constant="40" id="evf-nL-kF9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="fGr-WR-Pv6" secondAttribute="bottom" id="0di-zY-mA7"/>
+                    <constraint firstItem="il3-SD-Glz" firstAttribute="leading" secondItem="yKi-St-XP1" secondAttribute="trailing" constant="16" id="5oM-NO-Rqo"/>
+                    <constraint firstAttribute="trailing" secondItem="il3-SD-Glz" secondAttribute="trailing" constant="16" id="8ac-M3-Y6l"/>
+                    <constraint firstItem="TeW-ES-FNO" firstAttribute="leading" secondItem="cSq-S1-Mdn" secondAttribute="leading" constant="16" id="Dag-b6-J0a"/>
+                    <constraint firstAttribute="trailing" secondItem="TeW-ES-FNO" secondAttribute="trailing" constant="16" id="EmD-xQ-98o"/>
+                    <constraint firstItem="TeW-ES-FNO" firstAttribute="top" secondItem="yKi-St-XP1" secondAttribute="bottom" constant="16" id="Ps3-s2-sbI"/>
+                    <constraint firstItem="il3-SD-Glz" firstAttribute="top" secondItem="cSq-S1-Mdn" secondAttribute="top" constant="16" id="TiU-Ob-d2Z"/>
+                    <constraint firstAttribute="trailing" secondItem="T2h-N9-f4I" secondAttribute="trailing" constant="5" id="Uel-5Y-WTS"/>
+                    <constraint firstItem="yKi-St-XP1" firstAttribute="leading" secondItem="cSq-S1-Mdn" secondAttribute="leading" constant="16" id="YTW-Yk-gnF"/>
+                    <constraint firstItem="fGr-WR-Pv6" firstAttribute="leading" secondItem="cSq-S1-Mdn" secondAttribute="leading" constant="5" id="c8p-94-4wi"/>
+                    <constraint firstItem="yKi-St-XP1" firstAttribute="top" secondItem="cSq-S1-Mdn" secondAttribute="top" constant="10" id="p5O-of-oEI"/>
+                    <constraint firstItem="fGr-WR-Pv6" firstAttribute="top" secondItem="T2h-N9-f4I" secondAttribute="bottom" id="pUK-Oh-SHE"/>
+                    <constraint firstItem="T2h-N9-f4I" firstAttribute="leading" secondItem="cSq-S1-Mdn" secondAttribute="leading" constant="5" id="s7j-mm-ruj"/>
+                    <constraint firstItem="T2h-N9-f4I" firstAttribute="top" secondItem="TeW-ES-FNO" secondAttribute="bottom" constant="10" id="sTJ-Tu-ifQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="disk" destination="TeW-ES-FNO" id="Jox-bv-w29"/>
+                <outlet property="icon" destination="yKi-St-XP1" id="EOZ-0Z-7xp"/>
+                <outlet property="name" destination="il3-SD-Glz" id="Ifa-Jv-Tgq"/>
+                <outlet property="photoView" destination="T2h-N9-f4I" id="z6D-Kj-EgP"/>
+            </connections>
+            <point key="canvasLocation" x="-319.6875" y="212.32394366197184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
