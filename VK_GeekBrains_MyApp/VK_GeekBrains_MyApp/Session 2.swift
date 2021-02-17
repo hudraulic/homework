@@ -15,5 +15,4 @@ struct Session {
     var userID: Int?
     
     private init() {}
-    
 }
