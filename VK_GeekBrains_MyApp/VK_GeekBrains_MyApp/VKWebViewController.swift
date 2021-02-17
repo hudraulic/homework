@@ -48,8 +48,10 @@ extension VKWebViewController: WKNavigationDelegate {
         }
         
         let token = params["access_token"]
-        SessionMyApp.shared.token = token!
-        print(token)
+        let userID = params["user_id"]
+        Session.shared.userID = Int(userID ?? "")
+        Session.shared.token = token!
+        //print(token)
         if token != nil {
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

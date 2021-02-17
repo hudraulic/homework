@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct SessionMyApp {
+struct Session {
     
-    static var shared = SessionMyApp()
+    static var shared = Session()
     
     var token: String?
     var userID: Int?

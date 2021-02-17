@@ -20,6 +20,10 @@ class LoginViewController: UIViewController {
         loginPressButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
     }}
     @objc func tap () {
+        NetworkManager().getFriends(onComplete: { (friends) in
+            friendsList.append(contentsOf: friends)
+            //print(friends)
+        })
         UIView.animate(
             withDuration: 0.05,
             animations: {

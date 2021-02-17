@@ -9,21 +9,21 @@ import UIKit
 
 class TestViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBAction func GroupsUser(_ sender: Any) {
+        NetworkManager().getGroups()
+    }
+    @IBAction func photoAction(_ sender: Any) {
+        //NetworkManager().getPhoto()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func friendsAction(_ sender: Any) {
+        //NetworkManager().getFriends()
     }
-    */
-
+    
+    @IBAction func searchGroups(_ sender: Any) {
+        NetworkManager().getSearchGroups(text: searchField.text)
+    }
+    
+    @IBOutlet weak var searchField: UITextField!
+    
 }

@@ -122,16 +122,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsZ-5d-wK8">
-                                <rect key="frame" x="105" y="40" width="110" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="XnV-UA-LnV"/>
-                                </constraints>
-                                <state key="normal" title="Список Друзей"/>
-                                <connections>
-                                    <action selector="FriendsList:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="BVc-dK-vaw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-iH-eoo">
                                 <rect key="frame" x="100" y="110" width="120" height="30"/>
                                 <constraints>
@@ -139,7 +129,7 @@
                                 </constraints>
                                 <state key="normal" title="Получение Фото"/>
                                 <connections>
-                                    <action selector="photoAction:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="219-tr-EfZ"/>
+                                    <action selector="photoAction:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="PMM-T4-6bY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-x6-PCs">
@@ -148,6 +138,9 @@
                                     <constraint firstAttribute="height" constant="30" id="v6q-3t-fFY"/>
                                 </constraints>
                                 <state key="normal" title="Группы Пользователя"/>
+                                <connections>
+                                    <action selector="GroupsUser:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="gST-oN-mfL"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GY1-7y-54B">
                                 <rect key="frame" x="30" y="250" width="260" height="34"/>
@@ -163,6 +156,19 @@
                                     <constraint firstAttribute="height" constant="30" id="1fi-fK-lSS"/>
                                 </constraints>
                                 <state key="normal" title="Поиск Группы"/>
+                                <connections>
+                                    <action selector="searchGroups:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="3rO-RD-Edd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4T-lf-ygG">
+                                <rect key="frame" x="105" y="40" width="110" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Q4u-5t-sdf"/>
+                                </constraints>
+                                <state key="normal" title="Список Друзей"/>
+                                <connections>
+                                    <action selector="friendsAction:" destination="Gnb-Yy-CS1" eventType="touchUpInside" id="S86-C7-sv6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SMf-6Q-nkI"/>
@@ -172,21 +178,21 @@
                             <constraint firstItem="GY1-7y-54B" firstAttribute="top" secondItem="kaK-x6-PCs" secondAttribute="bottom" constant="40" id="8u1-nU-UsX"/>
                             <constraint firstItem="SMf-6Q-nkI" firstAttribute="trailing" secondItem="1Qe-x0-Y3B" secondAttribute="trailing" constant="109" id="95G-gh-TfA"/>
                             <constraint firstItem="1Qe-x0-Y3B" firstAttribute="top" secondItem="GY1-7y-54B" secondAttribute="bottom" constant="20" id="EQ4-am-V0t"/>
+                            <constraint firstItem="Rei-iH-eoo" firstAttribute="top" secondItem="O4T-lf-ygG" secondAttribute="bottom" constant="40" id="Kex-1R-wKF"/>
                             <constraint firstItem="SMf-6Q-nkI" firstAttribute="trailing" secondItem="kaK-x6-PCs" secondAttribute="trailing" constant="80" id="NOg-9u-hKZ"/>
-                            <constraint firstItem="SMf-6Q-nkI" firstAttribute="trailing" secondItem="IsZ-5d-wK8" secondAttribute="trailing" constant="105" id="R1c-hE-vLm"/>
                             <constraint firstItem="SMf-6Q-nkI" firstAttribute="trailing" secondItem="Rei-iH-eoo" secondAttribute="trailing" constant="100" id="Rzf-vA-1W2"/>
-                            <constraint firstItem="IsZ-5d-wK8" firstAttribute="top" secondItem="SMf-6Q-nkI" secondAttribute="top" constant="40" id="V2s-CL-PXO"/>
                             <constraint firstItem="GY1-7y-54B" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="30" id="bsq-40-7AT"/>
-                            <constraint firstItem="Rei-iH-eoo" firstAttribute="top" secondItem="IsZ-5d-wK8" secondAttribute="bottom" constant="40" id="dGq-OZ-aqf"/>
+                            <constraint firstItem="SMf-6Q-nkI" firstAttribute="trailing" secondItem="O4T-lf-ygG" secondAttribute="trailing" constant="105" id="fbg-ct-FFw"/>
+                            <constraint firstItem="O4T-lf-ygG" firstAttribute="top" secondItem="SMf-6Q-nkI" secondAttribute="top" constant="40" id="hM3-cP-Ked"/>
                             <constraint firstItem="1Qe-x0-Y3B" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="109" id="iRd-C1-qgX"/>
+                            <constraint firstItem="O4T-lf-ygG" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="105" id="jkF-aR-rjV"/>
                             <constraint firstItem="Rei-iH-eoo" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="100" id="kva-BN-8bd"/>
                             <constraint firstItem="kaK-x6-PCs" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="80" id="tBH-mj-D13"/>
-                            <constraint firstItem="IsZ-5d-wK8" firstAttribute="leading" secondItem="SMf-6Q-nkI" secondAttribute="leading" constant="105" id="tBN-Kj-jqU"/>
                             <constraint firstItem="kaK-x6-PCs" firstAttribute="top" secondItem="Rei-iH-eoo" secondAttribute="bottom" constant="40" id="z9f-zX-E1i"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="friendsList" destination="IsZ-5d-wK8" id="wEP-fg-AJi"/>
+                        <outlet property="searchField" destination="GY1-7y-54B" id="hpG-OB-zoe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glE-I6-syx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

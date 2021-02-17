@@ -9,10 +9,11 @@ import UIKit
 
 class FriendsViewController: UIViewController {
 
+    
     //массив первых букв
     var firstLetter: [String] {
         let firstLetter = friendsList.map { (user) -> String in
-            return String(user.surname.prefix(1)
+            return String(user.last_name.prefix(1)
         )}
         let firstLetterSet = Set(firstLetter)
         return Array(firstLetterSet).sorted()
@@ -21,7 +22,7 @@ class FriendsViewController: UIViewController {
         var friendDict = [String: [Users]]()
         
         for letter in firstLetter {
-            friendDict[letter] = friendsList.filter { $0.surname.prefix(1) == letter }
+            friendDict[letter] = friendsList.filter { $0.last_name.prefix(1) == letter }
         }
         return friendDict
     }
@@ -43,7 +44,6 @@ class FriendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "IMG_6077")
         backgroundImage.contentMode = .scaleAspectFill
@@ -102,6 +102,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let letter = firstLetter[indexPath.section]
         guard
             let cell = tableView.dequeueReusableCell(withIdentifier: "friends") as? FriendsCell,
@@ -114,8 +115,8 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             friend = arrFriend[indexPath.row]
         }
-        cell.name.text = friend.name + " " + friend.surname
-        cell.avatar.setImage(friend.userPhoto)
+        cell.name.text = friend.first_name + " " + friend.last_name
+        //cell.avatar.setImage(friend.userPhoto)
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -143,7 +144,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             friend = arrFriend![indexPath.row]
         }
-        controller.photoData.append(contentsOf: friend.userPhotoLibrari)
+        //controller.photoData.append(contentsOf: friend.userPhotoLibrari)
         show(controller, sender: nil)
     }
     
@@ -165,7 +166,7 @@ extension FriendsViewController: UISearchResultsUpdating {
     }
     private func filterContentForSearchText(_ searchText: String) {
         filteredFriend = friendsList.filter({ (friend: Users) -> Bool in
-            return friend.surname.lowercased().contains(searchText.lowercased())
+            return friend.last_name.lowercased().contains(searchText.lowercased())
         })
         tableView.reloadData()
     }
