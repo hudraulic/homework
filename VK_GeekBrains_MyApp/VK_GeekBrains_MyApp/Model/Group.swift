@@ -18,6 +18,11 @@ class Group: Object, Codable {
         case name
         case icon = "photo_100"
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
 }
 
 

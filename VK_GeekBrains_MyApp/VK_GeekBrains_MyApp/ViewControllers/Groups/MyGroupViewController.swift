@@ -11,8 +11,7 @@ class MyGroupViewController: UIViewController {
     
         
     @IBOutlet weak var tableView: UITableView!
-    
-    var myGroup: [Group] = []
+    private var myGroup: [Group] = []
     
     private var filteredGroup = [Group]()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -20,6 +19,7 @@ class MyGroupViewController: UIViewController {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
+    
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
@@ -37,9 +37,16 @@ class MyGroupViewController: UIViewController {
         NetworkManager().getGroups { [weak self] myGroups in
             DispatchQueue.main.async {
                 self?.myGroup = myGroups
-                self?.tableView.reloadData()
+                self?.addToDatabase()
             }
         }
+    }
+    func addToDatabase() {
+        let db = DatabaseGr()
+        myGroup.forEach ({ db.write($0) })
+        let dataGroup = db.read()
+        myGroup = dataGroup ?? []
+        self.tableView.reloadData()
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {
@@ -90,14 +97,14 @@ extension MyGroupViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            NetworkManager().leaveGroup(id: myGroup[indexPath.row].id) { (value) in
-                if value != 1 {
-                    self.myGroup.remove(at: indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: .fade)
+                NetworkManager().leaveGroup(id: self.myGroup[indexPath.row].id) { (value) in
+                    if value == 1 {
+                        self.myGroup.remove(at: indexPath.row)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    }
                 }
-            }
-            
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

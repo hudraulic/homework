@@ -25,13 +25,13 @@ class NetworkManager {
         urlComponents.path = "/authorize"
         
         urlComponents.queryItems = [
-            URLQueryItem(name: "client_id", value: "7752557"),
+            URLQueryItem(name: "client_id", value: "7774669"),
             URLQueryItem(name: "scope", value: "401502"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "revoke", value: "1"),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         
         guard let url = urlComponents.url else { return nil }
@@ -50,10 +50,10 @@ class NetworkManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "owner_id", value: String(owner)),
-            URLQueryItem(name: "photo_sizes", value: "1"),
+            URLQueryItem(name: "photo_sizes", value: "photo_130"),
             URLQueryItem(name: "extended", value: "1"),
             URLQueryItem(name: "count", value: "10"),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         guard let url = urlComponents.url else { return }
         
@@ -80,7 +80,7 @@ class NetworkManager {
             URLQueryItem(name: "order", value: "name"),
             URLQueryItem(name: "fields", value: "photo_100"),
             URLQueryItem(name: "access_token", value: Session.shared.token),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         
         guard let url = urlComponents.url else { return }
@@ -107,7 +107,7 @@ class NetworkManager {
             URLQueryItem(name: "access_token", value: Session.shared.token),
             URLQueryItem(name: "extended", value: "1"),
             URLQueryItem(name: "fields", value: "description"),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         
         guard let url = urlComponents.url else {return}
@@ -131,7 +131,7 @@ class NetworkManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "group_id", value: String(id)),
             URLQueryItem(name: "access_token", value: Session.shared.token),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         guard let url = urlComponents.url else {return}
         
@@ -155,7 +155,7 @@ class NetworkManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "group_id", value: String(id)),
             URLQueryItem(name: "access_token", value: Session.shared.token),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         guard let url = urlComponents.url else {return}
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -179,7 +179,7 @@ class NetworkManager {
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: text),
             URLQueryItem(name: "access_token", value: Session.shared.token),
-            URLQueryItem(name: "v", value: "5.126")
+            URLQueryItem(name: "v", value: "5.130")
         ]
         
         guard let url = urlComponents.url else { return }

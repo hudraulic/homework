@@ -20,4 +20,8 @@ class Users: Object, Codable {
         case surname = "last_name"
         case avatarURL = "photo_100"
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

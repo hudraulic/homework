@@ -9,7 +9,7 @@ import UIKit
 
 class FriendsViewController: UIViewController {
 
-    private var friendsList: [Users] = []
+    public var friendsList: [Users] = []
     //массив первых букв
     var firstLetter: [String] {
         let firstLetter = friendsList.map { (user) -> String in
@@ -47,6 +47,11 @@ class FriendsViewController: UIViewController {
         
         ImageServise().setBackgroundView(self.view)
         
+        let dataFriends = DatabaseFr().read()
+        friendsList = dataFriends ?? []
+        tableView.reloadData()
+        setLettersControl()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "Cell", bundle: nil), forCellReuseIdentifier: "friends")
@@ -55,14 +60,24 @@ class FriendsViewController: UIViewController {
         
         NetworkManager().getFriends(onComplete: { [weak self] friends in
             DispatchQueue.main.async {
+                
                 self?.friendsList = friends
-                self?.tableView.reloadData()
-                self?.setLettersControl()
+                self?.addToDatabase()
             }
         })
+        
     }
     
+    private func addToDatabase() {
+        let db = DatabaseFr()
+        friendsList.forEach ({ db.write($0) })
+        let dataFriends = db.read()
+        friendsList = dataFriends ?? []
+        tableView.reloadData()
+        setLettersControl()
+    }
     private func setLettersControl() {
+        
         letterControl = LetterControl()
         guard let letterControl = letterControl else {return}
         
@@ -81,6 +96,7 @@ class FriendsViewController: UIViewController {
         ])
     }
     @objc func selectedLetter() {
+        
         guard let letterControl = letterControl else {
             return
         }
@@ -98,6 +114,7 @@ class FriendsViewController: UIViewController {
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if isFiltering {
             return filteredFriend.count
         } else {
@@ -131,12 +148,14 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         if isFiltering {
             return nil
         }
         return firstLetter[section]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         if isFiltering {
             return 1
         }

@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         loginPressButton.addTarget(self, action: #selector(tap), for: .touchUpInside)
     }}
     @objc func tap () {
-    
+        
         UIView.animate(
             withDuration: 0.05,
             animations: {
